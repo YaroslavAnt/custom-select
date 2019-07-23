@@ -1,0 +1,26 @@
+body {
+  background-color: #ccc;
+}
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.field {
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid #777;
+  border-radius: 5px;
+}
+
+.flexbox {
+  display: flex;
+}
+
+.align-center {
+  align-items: center;
+}
+
+input[type="text"] {
+  background-color: transparent;
+}
