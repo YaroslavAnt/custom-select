@@ -4,23 +4,40 @@ body {
 .App {
   font-family: sans-serif;
   text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 .field {
   width: 100%;
-  max-width: 400px;
+  padding: 5px;
   border: 1px solid #777;
   border-radius: 5px;
 }
 
+.options {
+  text-align: left;
+}
+
+.options__item {
+  border-bottom: 1px solid #aaa;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
 .flexbox {
   display: flex;
 }
-
 .align-center {
   align-items: center;
+}
+.justify-between {
+  justify-content: space-between;
 }
 
 input[type="text"] {
   background-color: transparent;
+  border: none;
+  outline: none;
 }
