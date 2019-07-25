@@ -7,7 +7,7 @@ import Options from "./Options";
 
 const actItems = ["honda", "mazda", "suzuki", "nissan", "toyota"];
 
-class App extends React.Component {
+class Multiselect extends React.Component {
   state = {
     optItems: [...this.props.options].map(option => ({
       value: option,
@@ -57,22 +57,23 @@ class App extends React.Component {
   };
 
   render() {
+    const { optItems, text, isOpen } = this.state;
     return (
       <div className="App">
         <Field
-          optItems={this.state.optItems}
-          text={this.state.text}
+          optItems={optItems}
+          text={text}
+          isOpen={isOpen}
           toggleOpen={this.toggleOpen}
           handleChange={this.handleChange}
           handleDelete={this.handleDelete}
           handleDeleteItem={this.handleDeleteItem}
-          isOpen={this.state.isOpen}
         />
 
         {this.state.isOpen && (
           <Options
-            text={this.state.text}
-            options={this.state.optItems}
+            text={text}
+            options={optItems}
             handleCheck={this.handleCheck}
           />
         )}
@@ -82,4 +83,4 @@ class App extends React.Component {
 }
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(<App options={actItems} />, rootElement);
+ReactDOM.render(<Multiselect options={actItems} />, rootElement);

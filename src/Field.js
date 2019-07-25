@@ -6,18 +6,28 @@ import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 import CloseIcon from "@material-ui/icons/Close";
 
 function Field(props) {
+  const {
+    optItems,
+    handleChange,
+    handleDelete,
+    handleDeleteItem,
+    toggleOpen,
+    text,
+    isOpen
+  } = props;
+
   return (
     <div className="field flexbox align-center justify-between">
       <span className="flexbox align-center">
         <div className="flexbox align-center wrap">
-          {props.optItems.map(
+          {optItems.map(
             (optItem, idx) =>
               optItem.checked && (
                 <span key={idx} className="flexbox align-center">
                   {optItem.value}
                   <IconButton
                     size="small"
-                    onClick={props.handleDeleteItem(optItem.value)}
+                    onClick={handleDeleteItem(optItem.value)}
                   >
                     <CloseIcon />
                   </IconButton>
@@ -29,24 +39,20 @@ function Field(props) {
           type="text"
           size="30"
           placeholder="search"
-          onChange={props.handleChange}
-          value={props.text}
+          onChange={handleChange}
+          value={text}
         />
       </span>
 
       <span className="flexbox align-center">
-        <IconButton
-          aria-label="Add an alarm"
-          size="small"
-          onClick={props.toggleOpen}
-        >
-          {props.isOpen ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}
+        <IconButton aria-label="Add an alarm" size="small" onClick={toggleOpen}>
+          {isOpen ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}
         </IconButton>
 
         <IconButton
           aria-label="Add an alarm"
           size="small"
-          onClick={props.handleDelete}
+          onClick={handleDelete}
         >
           <DeleteIcon />
         </IconButton>
