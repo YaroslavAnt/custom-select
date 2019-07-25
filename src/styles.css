@@ -6,6 +6,7 @@ body {
   text-align: center;
   max-width: 500px;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .field {
@@ -13,6 +14,10 @@ body {
   padding: 5px;
   border: 1px solid #777;
   border-radius: 5px;
+}
+
+.field:focus-within {
+  border: #aaf 1px solid;
 }
 
 .options {

@@ -5,23 +5,25 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 function Options(props) {
   return (
     <div className="options">
-      {props.options.map(option => {
-        return (
-          <div className="options__item">
-            <FormControlLabel
-              control={
-                <Checkbox
-                  color="primary"
-                  onChange={props.handleCheck}
-                  value={option.value}
-                  checked={option.checked}
-                />
-              }
-              label={option.value}
-            />
-          </div>
-        );
-      })}
+      {props.options
+        .filter(optItem => optItem.value.includes(props.text))
+        .map(option => {
+          return (
+            <div className="options__item">
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    color="primary"
+                    onChange={props.handleCheck}
+                    value={option.value}
+                    checked={option.checked}
+                  />
+                }
+                label={option.value}
+              />
+            </div>
+          );
+        })}
     </div>
   );
 }

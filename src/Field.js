@@ -25,7 +25,13 @@ function Field(props) {
               )
           )}
         </div>
-        <input type="text" placeholder="search" />
+        <input
+          type="text"
+          size="30"
+          placeholder="search"
+          onChange={props.handleChange}
+          value={props.text}
+        />
       </span>
 
       <span className="flexbox align-center">

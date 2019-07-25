@@ -13,10 +13,18 @@ class App extends React.Component {
       value: option,
       checked: false
     })),
-    isOpen: false
+    isOpen: false,
+    text: ""
   };
+
   toggleOpen = () => {
     this.setState({ isOpen: !this.state.isOpen });
+  };
+
+  handleChange = ({ target: { value } }) => {
+    this.setState({
+      text: value
+    });
   };
 
   handleDelete = () => {
@@ -53,7 +61,9 @@ class App extends React.Component {
       <div className="App">
         <Field
           optItems={this.state.optItems}
+          text={this.state.text}
           toggleOpen={this.toggleOpen}
+          handleChange={this.handleChange}
           handleDelete={this.handleDelete}
           handleDeleteItem={this.handleDeleteItem}
           isOpen={this.state.isOpen}
@@ -61,6 +71,7 @@ class App extends React.Component {
 
         {this.state.isOpen && (
           <Options
+            text={this.state.text}
             options={this.state.optItems}
             handleCheck={this.handleCheck}
           />
