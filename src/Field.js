@@ -37,8 +37,8 @@ function Field(props) {
         </div>
         <input
           type="text"
-          size="30"
-          placeholder="search"
+          size="15"
+          placeholder="search..."
           onChange={handleChange}
           value={text}
         />
